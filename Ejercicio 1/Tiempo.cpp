@@ -1,0 +1,43 @@
+#include "Tiempo.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+//chequeo los valores inadecuados adentro de la clase?
+
+Tiempo::Tiempo(){
+    hora = 0; seg = 0; min = 0;
+    momto = "a.m";
+}
+Tiempo::Tiempo(int horas){
+    if (horas <= 0 || horas >= 12) {
+        horas = 0; //o tiro error?
+        cout << "Error en el ingreso de los datos";
+    }
+    hora = horas;
+    min = 0; seg = 0; momto = "a.m";
+}
+Tiempo::Tiempo(int horas, int minutos){
+    if (horas < 0 || horas >= 12 || minutos < 0 || minutos > 59) {
+        minutos = 0; horas = 0;
+        cout << "Error en el ingreso de los datos";
+    }
+    hora = horas; min = minutos;
+    seg = 0; momto = "a.m";
+}
+Tiempo::Tiempo(int horas, int minutos, int segundos){
+    if (horas < 0 || horas >= 12 || minutos < 0 || minutos > 59 || segundos < 0 || segundos > 59){
+        minutos = 0; horas = 0; segundos = 0;
+        cout << "Error en el ingreso de los datos";
+    }
+    hora = horas; min = minutos; seg = segundos;
+    momto = "a.m";
+}
+Tiempo::Tiempo(int horas, int minutos, int segundos, string momento){
+    if (horas < 0 || horas >= 12 || minutos < 0 || minutos > 59 || segundos < 0 || segundos > 59 || (momento != "a.m" && momento != "p.m")){
+        minutos = 0; horas = 0; segundos = 0; momento = "a.m";
+        cout << "Error en el ingreso de los datos";
+    }
+    hora = horas; min = minutos; seg = segundos;
+    momto = momento;
+}
