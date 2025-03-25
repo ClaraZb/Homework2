@@ -1,5 +1,6 @@
 #include "Tiempo.h"
 #include <iostream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
@@ -41,3 +42,21 @@ Tiempo::Tiempo(int horas, int minutos, int segundos, string momento){
     hora = horas; min = minutos; seg = segundos;
     momto = momento;
 }
+
+void Tiempo::imprimir(){
+    cout << setfill('0') << setw(2) << hora + "horas";
+    cout << setfill('0') << setw(2) << seg + "horas";
+    cout << setfill('0') << setw(2) << min + "horas";
+    cout << momto << endl;
+}
+
+void Tiempo::ajusteformato(){
+    if (hora < 12){
+        if (momto == "p.m"){
+            hora += 12;
+        }
+    }
+    cout << setfill('0') << setw(2) << hora + "horas";
+}
+
+// el usuario da la hora en q formato? 13h o 1h?

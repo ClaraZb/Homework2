@@ -8,9 +8,11 @@ class Tiempo{
         Tiempo(int horas, int minuntos);
         Tiempo(int horas, int minutos, int segundos);
         Tiempo(int horas, int minutos, int segundos, string momento);
-    private:
+        void imprimir();
+        void ajusteformato();
         int hora;
         int seg;
         int min;
         string momto;
+        private:
     };
