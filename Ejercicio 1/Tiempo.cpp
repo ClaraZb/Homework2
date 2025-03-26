@@ -4,14 +4,12 @@
 #include <string>
 using namespace std;
 
-//chequeo los valores inadecuados adentro de la clase?
-
 Tiempo::Tiempo(){
     hora = 0; seg = 0; min = 0;
     momto = "a.m";
 }
 Tiempo::Tiempo(int horas){
-    if (horas <= 0 || horas >= 12) {
+    if (horas < 0 || horas >= 12) {
         horas = 0; //o tiro error?
         throw invalid_argument("Error en el ingreso de los datos");
     }

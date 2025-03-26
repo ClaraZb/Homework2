@@ -98,8 +98,16 @@ int main(){
     cout << tiempo5.seg << endl;
     cout << tiempo5.momto << endl;
 
+    //Testeando ajustar formato
+    Tiempo tiempo6(10, 0, 5);
+    tiempo6.imprimir();
+    tiempo6.ajusteformato();
+
     return 0;
 
     //testear ajustar formato
     //chequear valores validos de la hora
+    //esta bien todos los catch q puse? no se me ocurre otra manera
+    //para q ajuste formato sirva la hora puede ir de 0 a 23 inclusives, sino no entendi ajuste formato
+    // en ese caso podrian poner 13h a.m, lo q no tendria sentido. -- preguntar
 }
