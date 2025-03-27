@@ -1,0 +1,4 @@
+Para compilar:
+- meterse a la carpeta
+g++ -o ejercicio1 ejercicio1.cpp Tiempo.cpp
+./ejercicio1

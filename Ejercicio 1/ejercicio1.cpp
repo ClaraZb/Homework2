@@ -112,4 +112,7 @@ int main(){
     // o creo metodos tipo GetHora()?
 
     //agregar comentarios descriptivos
+
+    //cuando pongo como compilar, asumo que ya se metieron correctamente a 
+    // la carpeta?
 }
