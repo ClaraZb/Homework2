@@ -99,15 +99,17 @@ int main(){
     cout << tiempo5.momto << endl;
 
     //Testeando ajustar formato
-    Tiempo tiempo6(10, 0, 5);
+    Tiempo tiempo6(10, 0, 5, "p.m"); 
     tiempo6.imprimir();
     tiempo6.ajusteformato();
 
     return 0;
 
-    //testear ajustar formato
-    //chequear valores validos de la hora
     //esta bien todos los catch q puse? no se me ocurre otra manera
-    //para q ajuste formato sirva la hora puede ir de 0 a 23 inclusives, sino no entendi ajuste formato
-    // en ese caso podrian poner 13h a.m, lo q no tendria sentido. -- preguntar
+
+    //en la consigna g, que tengo que dejar que el usuario pueda modificar
+    // la hora por ejemplo. solo se trata de poner los atributos en public?
+    // o creo metodos tipo GetHora()?
+
+    //agregar comentarios descriptivos
 }

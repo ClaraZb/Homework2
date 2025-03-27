@@ -49,12 +49,10 @@ void Tiempo::imprimir(){
 }
 
 void Tiempo::ajusteformato(){
-    if (hora < 12){
-        if (momto == "p.m"){
+    if (momto == "p.m"){
             hora += 12;
-        }
     }
-    cout << setfill('0') << setw(2) << hora << "horas";
+    cout << setfill('0') << setw(2) << hora << "h "
+    << setfill('0') << setw(2) << min << "m "
+    << setfill('0') << setw(2) << seg << "s " << endl;
 }
-
-// el usuario da la hora en q formato? 13h o 1h?
