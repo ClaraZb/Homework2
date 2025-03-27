@@ -10,14 +10,13 @@ Estudiante::Estudiante(string nombrecompleto, int l, vector<pair<string, float>>
     notas = notasfinales;
 }
 
+//Defino los getters
 string Estudiante::get_nombre(){
     return nombre;
 }
-
 int Estudiante::get_legajo(){
     return legajo;
 }
-
 float Estudiante::get_promedio(){
     float suma = 0;
     int cant_elts = notas.size();
