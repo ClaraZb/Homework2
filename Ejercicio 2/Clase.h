@@ -1,14 +1,17 @@
-#include <Estudiante.h>
+#pragma once
+#include "Estudiante.h"
 
 class Clase{
     public:
     Clase(vector<Estudiante*> lista);
     void inscribir(Estudiante* alumno);
-    void desinscribir(Estudiante* alumno);
+    bool desinscribir(Estudiante* alumno);
     bool esta_inscripto(Estudiante* alumno);
     bool esta_completa();
-
-
+    void imprimir_clase();
+    
     private:
     vector<Estudiante*> alumnos;
+    void ordenar_clase(vector<Estudiante*>);
+    void operator<<(const Clase& clase) const;
 };

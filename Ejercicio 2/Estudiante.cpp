@@ -1,4 +1,4 @@
-#include <Estudiante.h>
+#include "Estudiante.h"
 #include <string>
 #include <vector>
 using namespace std;
@@ -20,8 +20,17 @@ int Estudiante::get_legajo(){
 float Estudiante::get_promedio(){
     float suma = 0;
     int cant_elts = notas.size();
-    for (int i = 0; i <= cant_elts; i++){
+    for (int i = 0; i < cant_elts; i++){
         suma += notas[i].second; //accedo al segundo elemento del par
     }
     return suma/cant_elts;
+}
+
+//Sobrecarga de operadores
+bool Estudiante::operator==(const Estudiante& otro) const{
+    return this -> legajo == otro.legajo;
+}
+
+bool Estudiante::operator<(const Estudiante& otro) const{
+    return this -> nombre < otro.nombre;
 }

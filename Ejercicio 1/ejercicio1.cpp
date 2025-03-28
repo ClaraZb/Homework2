@@ -88,15 +88,15 @@ int main(){
     //Testeando modificacion de los atributos
     cout << "Testeo modificacion de atributos" << endl;
     Tiempo tiempo5(10, 54, 30, "a.m");
-    tiempo5.hora = 4;
-    tiempo5.min = 5;
-    tiempo5.seg = 40;
-    tiempo5.momto = "a.m";
+    tiempo5.setHoras(4);
+    tiempo5.setMinutos(5);
+    tiempo5.setSegundos(40);
+    tiempo5.setMomento("a.m");
 
-    cout << tiempo5.hora << endl;
-    cout << tiempo5.min << endl;
-    cout << tiempo5.seg << endl;
-    cout << tiempo5.momto << endl;
+    cout << tiempo5.getHoras() << endl;
+    cout << tiempo5.getMinutos() << endl;
+    cout << tiempo5.getSegundos() << endl;
+    cout << tiempo5.getMomento() << endl;
 
     //Testeando ajustar formato
     Tiempo tiempo6(10, 0, 5, "p.m"); 
@@ -106,13 +106,10 @@ int main(){
     return 0;
 
     //esta bien todos los catch q puse? no se me ocurre otra manera
-
-    //en la consigna g, que tengo que dejar que el usuario pueda modificar
-    // la hora por ejemplo. solo se trata de poner los atributos en public?
-    // o creo metodos tipo GetHora()?
+    //arrgelar menu main
 
     //agregar comentarios descriptivos
 
     //cuando pongo como compilar, asumo que ya se metieron correctamente a 
-    // la carpeta?
+    //la carpeta?
 }

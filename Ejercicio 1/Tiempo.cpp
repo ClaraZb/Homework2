@@ -1,6 +1,6 @@
 #include "Tiempo.h"
 #include <iostream>
-#include <iomanip>
+#include <iomanip> 
 #include <string>
 using namespace std;
 
@@ -10,7 +10,6 @@ Tiempo::Tiempo(){
 }
 Tiempo::Tiempo(int horas){
     if (horas < 0 || horas >= 12) {
-        horas = 0; //o tiro error?
         throw invalid_argument("Error en el ingreso de los datos");
     }
     hora = horas;
@@ -18,7 +17,6 @@ Tiempo::Tiempo(int horas){
 }
 Tiempo::Tiempo(int horas, int minutos){
     if (horas < 0 || horas >= 12 || minutos < 0 || minutos > 59) {
-        minutos = 0; horas = 0;
         throw invalid_argument("Error en el ingreso de los datos");
     }
     hora = horas; min = minutos;
@@ -26,7 +24,6 @@ Tiempo::Tiempo(int horas, int minutos){
 }
 Tiempo::Tiempo(int horas, int minutos, int segundos){
     if (horas < 0 || horas >= 12 || minutos < 0 || minutos > 59 || segundos < 0 || segundos > 59){
-        minutos = 0; horas = 0; segundos = 0;
         throw invalid_argument("Error en el ingreso de los datos");
     }
     hora = horas; min = minutos; seg = segundos;
@@ -34,7 +31,6 @@ Tiempo::Tiempo(int horas, int minutos, int segundos){
 }
 Tiempo::Tiempo(int horas, int minutos, int segundos, string momento){
     if (horas < 0 || horas >= 12 || minutos < 0 || minutos > 59 || segundos < 0 || segundos > 59 || (momento != "a.m" && momento != "p.m")){
-        minutos = 0; horas = 0; segundos = 0; momento = "a.m";
         throw invalid_argument("Error en el ingreso de los datos");
     }
     hora = horas; min = minutos; seg = segundos;
@@ -55,4 +51,41 @@ void Tiempo::ajusteformato(){
     cout << setfill('0') << setw(2) << hora << "h "
     << setfill('0') << setw(2) << min << "m "
     << setfill('0') << setw(2) << seg << "s " << endl;
+}
+
+int Tiempo::getHoras() {return hora;}
+int Tiempo::getMinutos() {return min;}
+int Tiempo::getSegundos() {return seg;}
+string Tiempo::getMomento() {return momto;}
+
+void Tiempo::setHoras(int horas){
+    if (horas < 0 || horas >= 12) {
+        throw invalid_argument("Error en el ingreso de los datos");
+    }
+    hora = horas;
+    return;
+}
+
+void Tiempo::setMinutos(int minutos){
+    if (minutos < 0 || minutos > 59) {
+        throw invalid_argument("Error en el ingreso de los datos");
+    }
+    min = minutos;
+    return;
+}
+
+void Tiempo::setSegundos(int segundos){
+    if (segundos < 0 || segundos > 59){
+        throw invalid_argument("Error en el ingreso de los datos");
+    }
+    seg = segundos;
+    return;
+}
+
+void Tiempo::setMomento(string momento){
+    if (momento != "a.m" && momento != "p.m"){
+        throw invalid_argument("Error en el ingreso de los datos");
+    }
+    momto = momento;
+    return;
 }
