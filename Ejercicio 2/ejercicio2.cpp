@@ -6,11 +6,11 @@
 using namespace std;
 
 int main(){
-    string nombre1 = "ClaraZavaroni";
+    string nombre1 = "Clara Zavaroni";
     vector<pair<string, float>> notas1 = {{"Fisica", 7}, {"Paradigmas",9}};
     Estudiante alumno1(nombre1, 364554, notas1);
 
-    string nombre2 = "JuanaBertone";
+    string nombre2 = "Juana Bertone";
     vector<pair<string, float>> notas2 = {{"Fisica", 9}, {"Paradigmas",6}};
     Estudiante alumno2(nombre2, 376845, notas2);
 
@@ -24,7 +24,7 @@ int main(){
     }
     else cout << "El alumno " + alumno2.get_nombre() + " no esta inscripto" << endl;
 
-    teoricaParadigmas.desinscribir(&alumno2);
+    //teoricaParadigmas.desinscribir(&alumno2);
     res = teoricaParadigmas.esta_inscripto(&alumno2);
     if (res == 1){
         cout << "El alumno " + alumno2.get_nombre() + " esta inscripto" << endl;
@@ -36,4 +36,10 @@ int main(){
         cout << "La clase esta completa" << endl;
     }
     else cout << "La clase no esta completa" << endl;
+
+    teoricaParadigmas.imprimir_clase();
 }
+
+//terminar de hacer el main
+//creo q hay q inscribir al alumno por consola
+//sino defino yo las materias posibles y sus notas?

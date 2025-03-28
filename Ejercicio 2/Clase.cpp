@@ -21,7 +21,7 @@ bool Clase::desinscribir(Estudiante* alumno){
             return true;
         }
     }
-    return false; //manejo el caso donde no se encontro al alumno en cuestion?
+    return false; //caso donde no se encontro al alumno en cuestion
 }
 
 bool Clase::esta_inscripto(Estudiante* alumno){
@@ -45,19 +45,31 @@ void Clase::ordenar_clase(vector<Estudiante*> listaclase){
 }
 void Clase::imprimir_clase(){
     ordenar_clase(alumnos);
+    cout << this;
+    /*
     for (int i = 0; i < alumnos.size(); i++){
-        cout << alumnos[i] << endl;
+        cout << alumnos[i] -> get_nombre() << endl;
     }
+    */
 }
-void Clase::operator<<(const Clase& clase) const{
-    return;
+
+/* 
+ESTA FUNCION NO FUNCIONA
+LA VDD NO ENTIENDO Q SERIA SOBRECARGAR ESTE OPERADOR EN ESPECIFICO
+osea no tira error pero tpc lo q quiero
+
+string Clase::operator<<(const Clase& clase) const{
+    string temp;
+    for (int i = 0; i < alumnos.size(); i++){
+        temp += " ";
+        temp += alumnos[i] -> get_nombre();
+    }
+    return temp;
 }
+*/
+
 /*
-- llamo muchas veces a estudiante en los diferentes archivos? 
-o como inclui clase.h (que incluye a su vez estudiante.h) no tengo que 
-incluirla nuevamente ------------------ usar pragma once
 - problemas al sobrecargar <<
 - relacion entre las clases? tipo friends?
 - creacion de las materias de la clase por consola?
-- fatal error de la terminal :)
 */
