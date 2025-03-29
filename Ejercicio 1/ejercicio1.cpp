@@ -4,9 +4,15 @@
 int manejoError(){
     int res;
     cout << "Error en el ingreso de los datos" << endl;
-    cout << "Quieres salir (0) o ingresar un numero nuevamente (1)? " << endl;
+    cout << "Quieres salir (0) o ingresar un numero nuevamente (1)? ";
+    cin.clear();
+    cin.ignore(100, '\n');
     cin >> res;
     return res;
+}
+
+bool cambiarHora(Tiempo& tiempo, int hora){
+    
 }
 
 int main(){
@@ -30,8 +36,7 @@ int main(){
             cout << "Ingresar hora: ";
             cin >> hora;
             try{
-                Tiempo tiempo(hora);
-                tiempo.imprimir();
+                tiempo = Tiempo(hora);
                 exitoso = true;
             }
             catch(const invalid_argument& e){
@@ -47,8 +52,7 @@ int main(){
             cout << "Ingresar hora y minutos: ";
             cin >> hora >> min;
             try{
-                Tiempo tiempo(hora, min);
-                tiempo.imprimir();
+                tiempo = Tiempo(hora, min);
                 exitoso = true;
             }
             catch(const invalid_argument& e){
@@ -64,8 +68,7 @@ int main(){
             cout << "Ingresar hora, minutos y segundos: ";
             cin >> hora >> min >> seg;
             try{
-                Tiempo tiempo(hora, min, seg);
-                tiempo.imprimir();
+                tiempo = Tiempo(hora, min, seg);
                 exitoso = true;
             }
             catch(const invalid_argument& e){
@@ -81,8 +84,7 @@ int main(){
             cout << "Ingresar hora, minutos, segundos y momento del dia (a.m o p.m): ";
             cin >> hora >> min >> seg >> momto;
             try{
-                Tiempo tiempo(hora, min, seg, momto);
-                tiempo.imprimir();
+                tiempo = Tiempo(hora, min, seg, momto);
                 exitoso = true;
             }
             catch(const invalid_argument& e){
@@ -94,22 +96,15 @@ int main(){
     }
 
     else{ //Inicializo por default sin parametros
-        Tiempo tiempo;
-        tiempo.imprimir();
+        tiempo = Tiempo();
     }
 
     
     while (true){
         cout << "Quieres...\n" 
         << "- Terminar la sesion (0) \n"
-        << "- Obtener la hora (1) \n"
-        << "- Obtener los minutos (2) \n"
-        << "- Obtener los segundos (3) \n"
-        << "- Obtener el momento del dia (4) \n" 
-        << "- Cambiar la hora (5) \n"
-        << "- Cambiar los minutos (6) \n"
-        << "- Cambiar los segundos (7) \n"
-        << "- Cambiar el momento del dia (8) \n"
+        << "- Obtener la hora (1), los minutos (2), los segundos (3) o el momento del dia (4) \n" 
+        << "- Cambiar la hora (5), los minutos (6), los segundos (7) o el momento del dia (8) \n"
         << "- Imprimir el tiempo (9) \n"
         << "- Imprimir el tiempo en formato 0 a 24 (10) \n"
         << "-> ";
