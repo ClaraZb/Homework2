@@ -1,0 +1,2 @@
+- cuando pongo como compilar, asumo que ya se metieron 
+correctamente a la carpeta?

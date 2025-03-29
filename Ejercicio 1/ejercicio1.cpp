@@ -1,25 +1,80 @@
 #include <iostream>
 #include "Tiempo.h"
 
-int manejoError(){
+/*
+Crear el main fue lo que mas dificil me parecio. Al principio era
+un codigo gigante y horrible pero despues lo fui modularizando. 
+Decidi no modularizar la inicializacion de tiempo ya que complicaria
+mas el codigo que lo que mejoraria la legibilidad. 
+
+Para la explicacion de la clase tiempo ver el archivo Tiempo.h
+*/
+
+
+int manejoError(){ //Imprimo por pantalla en caso de error
     int res;
     cout << "Error en el ingreso de los datos" << endl;
     cout << "Quieres salir (0) o ingresar un numero nuevamente (1)? ";
-    cin.clear();
-    cin.ignore(100, '\n');
+    //cin.clear();
+    //cin.ignore(100, '\n');
     cin >> res;
     return res;
 }
 
-bool cambiarHora(Tiempo& tiempo, int hora){
-    
+void cambiarHora(Tiempo& tiempo){ //cambio la hora y manejo los posibles errores
+    int hora;
+    cout << "Ingresar la nueva hora: ";
+    cin >> hora ;
+    try{
+        tiempo.setHoras(hora);
+    }
+    catch(const invalid_argument& e){
+        cout << "Error en el ingreso de los datos" << endl;
+    }
 }
+
+void cambiarMinutos(Tiempo& tiempo){ //cambio los minutos y manejo los posibles errores
+    int min;
+    cout << "Ingresar los nuevos minutos: ";
+    cin >> min;
+    try{
+        tiempo.setMinutos(min);
+    }
+    catch(const invalid_argument& e){
+        cout << "Error en el ingreso de los datos" << endl;
+    }
+}
+
+void cambiarSegundos(Tiempo& tiempo){ //cambio los segundos y manejo los posibles errores
+    int seg;
+    cout << "Ingresar los nuevos segundos: ";
+    cin >> seg;
+    try{
+        tiempo.setSegundos(seg);
+    }
+    catch(const invalid_argument& e){
+        cout << "Error en el ingreso de los datos" << endl;
+    }
+}
+
+void cambiarMomento(Tiempo& tiempo){ //cambio el momento del dia y manejo los posibles errores
+    string momto;
+    cout << "Ingresar el nuevo momento del dia (p.m o a.m): ";
+    cin >> momto ;
+    try{
+        tiempo.setMomento(momto);
+    }
+    catch(const invalid_argument& e){
+        cout << "Error en el ingreso de los datos" << endl;
+    }
+}
+
 
 int main(){
     //Inicializo parametros
     int hora; int min; int seg; int res; 
     string momto; 
-    bool exitoso = false;
+    bool exitoso = false; //me va a permitir manejar los errores 
     Tiempo tiempo;
 
     cout << "Quieres definir el tiempo...\n" 
@@ -113,96 +168,25 @@ int main(){
         exitoso = false;
 
         if (res == 0) return 0;
-        else if (res == 1) cout << tiempo.getHoras() << endl;
-        else if (res == 2) cout << tiempo.getMinutos() << endl;
-        else if (res == 3) cout << tiempo.getSegundos() << endl;
+        //Getters
+        else if (res == 1) cout << tiempo.getHoras() << "h" << endl;
+        else if (res == 2) cout << tiempo.getMinutos() << "min" << endl;
+        else if (res == 3) cout << tiempo.getSegundos() << "seg" << endl;
         else if (res == 4) cout << tiempo.getMomento() << endl;
         
-        else if (res == 5){ //Cambio la hora
-            while (exitoso == false) {
-                cout << "Ingresar la nueva hora: ";
-                cin >> hora ;
-                try{
-                    tiempo.setHoras(hora);
-                    exitoso = true;
-                }
-                catch(const invalid_argument& e){
-                    res = manejoError();
-                    if (res == 1) exitoso = false;
-                    else return 0; //salgo del main o salgo del while?
-                }
-            } 
-        }
+        //Setters
+        else if (res == 5) cambiarHora(tiempo);
+        else if (res == 6) cambiarMinutos(tiempo);
+        else if (res == 7) cambiarSegundos(tiempo);
+        else if (res == 8) cambiarMomento(tiempo);
 
-        else if (res == 6){ //Cambio los minutos
-            while (exitoso == false) {
-                cout << "Ingresar el nuevo minuto: ";
-                cin >> min;
-                try{
-                    tiempo.setMinutos(min);
-                    exitoso = true;
-                }
-                catch(const invalid_argument& e){
-                    res = manejoError();
-                    if (res == 1) exitoso = false;
-                    else return 0; //salgo del main o salgo del while?
-                }
-            } 
-        }
-
-        else if (res == 7){ //Cambio los segundos
-            while (exitoso == false) {
-                cout << "Ingresar el nuevo segundo: ";
-                cin >> seg;
-                try{
-                    tiempo.setSegundos(seg);
-                    exitoso = true;
-                }
-                catch(const invalid_argument& e){
-                    res = manejoError();
-                    if (res == 1) exitoso = false;
-                    else return 0; //salgo del main o salgo del while?
-                }
-            } 
-        }
-
-        else if (res == 8){ //Cambio el momento del dia
-            while (exitoso == false) {
-                cout << "Ingresar el nuevo momento del dia (p.m o a.m): ";
-                cin >> momto ;
-                try{
-                    tiempo.setMomento(momto);
-                    exitoso = true;
-                }
-                catch(const invalid_argument& e){
-                    res = manejoError();
-                    if (res == 1) exitoso = false;
-                    else return 0; //salgo del main o salgo del while?
-                }
-            } 
-        }
-
-        else if (res == 9){ //Imprimo por pantalla
-            tiempo.imprimir();
-        }
-        else if (res == 10){ //Imprimo por pantalla con otro formato
-            tiempo.ajusteformato();
-        }
+        //Impresion por pantalla
+        else if (res == 9) tiempo.imprimir();
+        else if (res == 10) tiempo.ajusteformato();
+        
         else{ //lpm pone un valor correcto
             cout << "Ingrese un numero valido" << endl;
         }
     }
     return 0;
-
-
-    //compilar para chequear
-    //esta bien todos los catch q puse? no se me ocurre otra manera
-    //arrgelar q no me reconozca el tiempo
-
-    //agregar comentarios descriptivos
-
-    //cuando pongo como compilar, asumo que ya se metieron correctamente a 
-    //la carpeta?
-
-    //el main con un choclo gigante me parece feisimo. defino funciones?
 }

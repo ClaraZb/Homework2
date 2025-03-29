@@ -45,10 +45,11 @@ void Tiempo::imprimir(){
 }
 
 void Tiempo::ajusteformato(){
+    int nuevahora = hora;
     if (momto == "p.m"){
-            hora += 12;
+        nuevahora += 12;
     }
-    cout << setfill('0') << setw(2) << hora << "h "
+    cout << setfill('0') << setw(2) << nuevahora << "h "
     << setfill('0') << setw(2) << min << "m "
     << setfill('0') << setw(2) << seg << "s " << endl;
 }
