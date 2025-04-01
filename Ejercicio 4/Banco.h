@@ -26,23 +26,23 @@ class CajaDeAhorro: public Banco{
         } 
         void retirar(int cantidad) override;
         void mostrarInfo() override;
-
         friend double verificarBalance(CajaDeAhorro& caja);
-    private:
+    
+        private:
         int contadorChequeos = 0;
 };
 
 class CuentaCorriente: public Banco{
     public:
-        CuentaCorriente(double b, string titular){
+        CuentaCorriente(double b, string titular, CajaDeAhorro* caja){
             balance = b;
             titularCuenta = titular;
+            cajaAhorro = caja;
         } 
         void retirar(int cantidad) override;
         void mostrarInfo() override;
-        void asociarCajaAhorro(CajaDeAhorro* caja);
-
         friend double verificarBalance(CajaDeAhorro& caja);
+
     private:
         CajaDeAhorro* cajaAhorro;
 };

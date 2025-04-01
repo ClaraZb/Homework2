@@ -2,3 +2,4 @@
 - hacer correctamente interfaz main ejercicio2
 - implementar copy ejercicio 2
 - chequear la division de complejos con algun ejemplo
+-explicar por que cada cosa es private o public o protected en el ejercicio 4

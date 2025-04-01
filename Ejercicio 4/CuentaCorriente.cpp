@@ -7,10 +7,7 @@ using namespace std;
 double verificarBalance(CajaDeAhorro &caja){
     return caja.balance;
 }
-void CuentaCorriente::asociarCajaAhorro(CajaDeAhorro *caja){
-    cajaAhorro = caja;
 
-}
 void CuentaCorriente::retirar(int cantidad){
     if (balance < cantidad){
         if (cantidad <= verificarBalance(*cajaAhorro)){

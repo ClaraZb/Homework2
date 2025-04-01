@@ -4,9 +4,7 @@ using namespace std;
 
 int main() {
     CajaDeAhorro ahorro(1000, "Clara");
-    CuentaCorriente corriente(500, "Clara");
-    
-    corriente.asociarCajaAhorro(&ahorro);
+    CuentaCorriente corriente(500, "Clara", &ahorro);
 
     //Situacion inicial
     cout << "Estado inicial:" << endl;
