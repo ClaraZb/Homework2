@@ -26,6 +26,8 @@ class CajaDeAhorro: public Banco{
         } 
         void retirar(int cantidad) override;
         void mostrarInfo() override;
+
+        friend double verificarBalance(CajaDeAhorro& caja);
     private:
         int contadorChequeos = 0;
 };
@@ -39,7 +41,7 @@ class CuentaCorriente: public Banco{
         void retirar(int cantidad) override;
         void mostrarInfo() override;
 
-        friend void verificarBalance(CuentaCorriente& cuenta);
+        friend double verificarBalance(CajaDeAhorro& caja);
     private:
         CajaDeAhorro* cajaAhorro;
 };
