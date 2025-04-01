@@ -24,7 +24,9 @@ Complejo* Complejo::multiplicacion(Numero* otroNum){ //LA MULTIPLICACION SE HACE
     if (otroComplejo == nullptr){ 
         throw invalid_argument("Se debe ingresar un numero complejo");
     }
-    return new Complejo(real * otroComplejo -> real, img * otroComplejo -> img);
+    float parte_real = real * otroComplejo -> real - img * otroComplejo -> img;
+    float parte_imaginaria = real * otroComplejo -> img + img * otroComplejo -> real;
+    return new Complejo(parte_real, parte_imaginaria);
 }
 
 Complejo* Complejo::division(Numero* otroNum){
@@ -32,11 +34,17 @@ Complejo* Complejo::division(Numero* otroNum){
     if (otroComplejo == nullptr){ //estoo quiere decir que fallo
         throw invalid_argument("Se debe ingresar un numero complejo");
     }
-    //CHEQUEAR DIVISION POR 0
-    return new Complejo(real / otroComplejo -> real, img / otroComplejo -> img);
+    if (otroComplejo -> real == 0 && otroComplejo -> img == 0){
+        throw invalid_argument("Error - division por 0");
+    } 
+    Complejo conjugado(otroComplejo -> real, -(otroComplejo -> img));
+    float divisor = otroComplejo -> real * otroComplejo -> real + otroComplejo -> img * otroComplejo -> img;
+    Complejo *numerador = this -> multiplicacion(&conjugado);
+    //delete numerador
+    return new Complejo(numerador -> real /divisor, numerador -> img/divisor);
 
 }
 
 string Complejo::toString(){
-    return to_string(real) + " " + to_string(img);
+    return to_string(real) + " " + to_string(img) + "i";
 }
