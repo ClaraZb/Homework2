@@ -3,15 +3,21 @@
 #include <string>
 using namespace std;
 
-double verificarBalance(CajaDeAhorro & caja){
+
+double verificarBalance(CajaDeAhorro &caja){
     return caja.balance;
 }
+void CuentaCorriente::asociarCajaAhorro(CajaDeAhorro *caja){
+    cajaAhorro = caja;
 
+}
 void CuentaCorriente::retirar(int cantidad){
-    if (balance - cantidad < 0){
+    if (balance < cantidad){
         if (cantidad <= verificarBalance(*cajaAhorro)){
-            cout << "Fondos insuficientes, descontamos de la caja de ahorro" << endl;
-            cajaAhorro -> retirar(cantidad);
+            cout << "Fondos insuficientes, descontamos tambien de la caja de ahorro" << endl;
+            float diferencia = cantidad - balance;
+            balance = 0; //descontamos todo lo que podemos de balance
+            cajaAhorro -> retirar(diferencia); //descontamos lo que queda de la caja de ahorro
         }
         else throw invalid_argument("Error: Se quiere retirar mas dinero del que hay en la cuenta y en la caja de ahorro");
     }
@@ -21,6 +27,7 @@ void CuentaCorriente::retirar(int cantidad){
 }  
 
 void CuentaCorriente::mostrarInfo(){
-    cout << "El balance de la cuenta corriente es de " << balance << endl
-    << "El titular es " << titularCuenta << endl;
+    cout << "Tipo: Cuenta corriente" << endl
+    << "Balance: " << balance << endl
+    << "Titular: " << titularCuenta << endl;
 }

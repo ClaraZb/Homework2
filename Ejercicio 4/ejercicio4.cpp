@@ -3,30 +3,37 @@
 using namespace std;
 
 int main() {
-    // Crear una Caja de Ahorro y una Cuenta Corriente
-    CajaDeAhorro ahorro1(1000, "Juan");
-    CuentaCorriente corriente1(500, "Juan");
+    CajaDeAhorro ahorro(1000, "Clara");
+    CuentaCorriente corriente(500, "Clara");
+    
+    corriente.asociarCajaAhorro(&ahorro);
 
-    // Asociar la Caja de Ahorro a la Cuenta Corriente
-    //corriente1.cajaAhorro = &ahorro1;
+    //Situacion inicial
+    cout << "Estado inicial:" << endl;
+    ahorro.mostrarInfo();
+    corriente.mostrarInfo();
 
-    // Mostrar balances iniciales
-    cout << "Balances iniciales:" << endl;
-    ahorro1.mostrarInfo();
-    corriente1.mostrarInfo();
+    //Testeo retirar de la cuenta corriente
+    cout << "\nRetiro $100 de la cuenta corriente" << endl;
+    corriente.retirar(100);
+    cout << "Estado actual: " << endl;
+    corriente.mostrarInfo();
 
-    // Intentar retirar más dinero del que hay en la Cuenta Corriente
-    cout << "\nIntentando retirar $600 de la cuenta corriente..." << endl;
-    corriente1.retirar(600);
+    //Testeo retirar mas que lo disponible en la cuenta corriente
+    cout << "\nIntento retirar $600 de la cuenta corriente" << endl;
+    corriente.retirar(600);
+    cout << "Estado actual:" << endl;
+    ahorro.mostrarInfo();
+    corriente.mostrarInfo();
 
-    // Mostrar balances después del retiro
-    cout << "\nBalances después del retiro:" << endl;
-    ahorro1.mostrarInfo();
-    corriente1.mostrarInfo();
-
-    // Intentar retirar más dinero del que hay en ambas cuentas
-    cout << "\nIntentando retirar $1500 de la cuenta corriente..." << endl;
-    corriente1.retirar(1500);
+    //Testeo retirar mas que lo disponible en la cuenta corriente y en la caja de ahorro
+    cout << "\nIntento retirar $1500 de la cuenta corriente" << endl;
+    try{
+        corriente.retirar(1500);
+    }
+    catch(const invalid_argument& e){
+        cout << e.what() << endl;
+    }
 
     return 0;
 }

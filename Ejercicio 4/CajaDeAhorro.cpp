@@ -14,8 +14,10 @@ void CajaDeAhorro::retirar(int cantidad){
 void CajaDeAhorro::mostrarInfo(){
     contadorChequeos += 1;
     if (contadorChequeos > 2){
+        cout << "Muchos chequeos, descuento 20 de la caja de ahorro" << endl;
         balance -= 20;
     }
-    cout << "El balance de la caja de ahorro es de " << balance << endl
-    << "El titular es " << titularCuenta << endl;
+    cout << "Tipo: Caja de ahorro" << endl
+    << "Balance: " << balance << endl
+    << "Titular: " << titularCuenta << endl;
 }

@@ -1,15 +1,6 @@
-- cuando pongo como compilar, asumo que ya se metieron 
-correctamente a la carpeta?
-
 Ejercicio 3:
 - implemento getters y setters?
-- al definir un complejo, tiene una parte real y una imaginaria:
-  defini float real float img
-  podria definit Entero real? conviene?
 - implemento el destructor de la interfaz? o en todo caso lo defino?
 
 Ejercicio 2:
 MUCHAS PREGUNTAS
-
-Ejercicio 3;
-Cada cuenta tiene un diferente balance????

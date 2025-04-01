@@ -13,5 +13,5 @@ class Clase{
     private:
     vector<Estudiante*> alumnos;
     void ordenar_clase(vector<Estudiante*>);
-    string operator<<(const Clase& clase) const;
+    friend ostream& operator<<(ostream& os, const Clase& clase);
 };

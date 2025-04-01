@@ -45,30 +45,14 @@ void Clase::ordenar_clase(vector<Estudiante*> listaclase){
 }
 void Clase::imprimir_clase(){
     ordenar_clase(alumnos);
-    cout << endl; //creo que quiero imprimir la clase?
-    /*
-    for (int i = 0; i < alumnos.size(); i++){
-        cout << alumnos[i] -> get_nombre() << endl;
-    }
-    */
+    cout << "Lista de la clase: " << endl;
+    cout << *this; //creo que quiero imprimir la clase?
 }
 
-/* 
-ESTA FUNCION NO FUNCIONA
-LA VDD NO ENTIENDO Q SERIA SOBRECARGAR ESTE OPERADOR EN ESPECIFICO
-osea no tira error pero tpc lo q quiero
-*/
-string Clase::operator<<(const Clase& clase) const{
+ostream& operator<<(ostream& os, const Clase& clase){
     string temp;
-    for (int i = 0; i < alumnos.size(); i++){
-        temp += " ";
-        temp += alumnos[i] -> get_nombre();
+    for (int i = 0; i < clase.alumnos.size(); i++){
+        os << clase.alumnos[i] -> get_nombre() << endl;
     }
-    return temp;
+    return os;
 }
-
-
-/*
-- problemas al sobrecargar <<
-- creacion de las materias de la clase por consola?
-*/

@@ -40,6 +40,7 @@ class CuentaCorriente: public Banco{
         } 
         void retirar(int cantidad) override;
         void mostrarInfo() override;
+        void asociarCajaAhorro(CajaDeAhorro* caja);
 
         friend double verificarBalance(CajaDeAhorro& caja);
     private:

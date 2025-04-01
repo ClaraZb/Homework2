@@ -1,3 +1,4 @@
 - Agregar comentarios en todo
 - hacer correctamente interfaz main ejercicio2
+- implementar copy ejercicio 2
 - chequear la division de complejos con algun ejemplo
