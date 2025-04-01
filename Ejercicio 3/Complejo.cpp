@@ -40,9 +40,10 @@ Complejo* Complejo::division(Numero* otroNum){
     Complejo conjugado(otroComplejo -> real, -(otroComplejo -> img));
     float divisor = otroComplejo -> real * otroComplejo -> real + otroComplejo -> img * otroComplejo -> img;
     Complejo *numerador = this -> multiplicacion(&conjugado);
-    //delete numerador
-    return new Complejo(numerador -> real /divisor, numerador -> img/divisor);
-
+    float parte_real = numerador -> real /divisor;
+    float parte_imaginaria = numerador -> img/divisor;
+    delete numerador;
+    return new Complejo(parte_real, parte_imaginaria);
 }
 
 string Complejo::toString(){

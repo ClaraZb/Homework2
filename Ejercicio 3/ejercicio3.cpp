@@ -12,14 +12,16 @@ int main(){
 
     Numero* respuesta = entero1.suma(&entero2);
     cout << "La suma de " + entero1.toString() + " y de " + entero2.toString() + " es " + respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = entero1.resta(&entero2);
     cout << "La resta de " + entero1.toString() + " y de " + entero2.toString() + " es " + respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = entero1.multiplicacion(&entero2);
     cout << "La multiplicacion de " + entero1.toString() + " y de " + entero2.toString() + " es " + respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = entero1.division(&entero2);
     cout << "La division de " + entero1.toString() + " y de " + entero2.toString() + " es " + respuesta -> toString() << endl;
-    
-    //delete memoria para liberar memoria????
+    delete respuesta;
 
     //Testeo reales
     cout << "\nTesteo de reales" << endl;
@@ -28,13 +30,16 @@ int main(){
 
     respuesta = real1.suma(&real2);
     cout << "La suma de " + real1.toString() + " y de " + real2.toString() + " es " + respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = real1.resta(&real2);
     cout << "La resta de " + real1.toString() + " y de " + real2.toString() + " es " + respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = real1.multiplicacion(&real2);
     cout << "La multiplicacion de " + real1.toString() + " y de " + real2.toString() + " es " + respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = real1.division(&real2);
     cout << "La division de " + real1.toString() + " y de " + real2.toString() + " es " + respuesta -> toString() << endl;
-
+    delete respuesta;
 
     //Testeo complejos
     cout << "\nTesteo de complejos" << endl;
@@ -43,12 +48,16 @@ int main(){
 
     respuesta = complejo1.suma(&complejo2);
     cout << "La suma de " << complejo1.toString() << " y " << complejo2.toString() << " es " << respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = complejo1.resta(&complejo2);
     cout << "La resta de " << complejo1.toString() << " y " << complejo2.toString() << " es " << respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = complejo1.multiplicacion(&complejo2);
     cout << "La multiplicacion de " << complejo1.toString() << " y " << complejo2.toString() << " es " << respuesta -> toString() << endl;
+    delete respuesta;
     respuesta = complejo1.division(&complejo2);
     cout << "La division de " << complejo1.toString() << " y " << complejo2.toString() << " es " << respuesta -> toString() << endl;
+    delete respuesta;
 
     //Testeo errores
     cout << "\nTesteo de errores" << endl;
@@ -67,13 +76,13 @@ int main(){
     try {
         respuesta = entero1.suma(&real2); 
     } catch (const invalid_argument& e) {
-        cout << "Error2: " << e.what() << endl;
+        cout << "Error: " << e.what() << endl;
     }
 
     //intento dividir por 0
     try {
         respuesta = real1.division(&real0);
     } catch (const invalid_argument& e) {
-        cout << "Error3: " << e.what() << endl;
+        cout << "Error: " << e.what() << endl;
     }
 }
