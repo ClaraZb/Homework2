@@ -8,9 +8,5 @@ Ejercicio 3:
   podria definit Entero real? conviene?
 - implemento el destructor de la interfaz? o en todo caso lo defino?
 
-Para mi:
-- que pasa si me pasan un float al definir un Entero?
-- esta bien devolver &Entero() asi con la direccion de memoria?
-- como era la division entre complejos? y la multiplicacion?
-- cual deberia ser el tipo que soporte la parte imaginaria de los complejos?
-- como chequear division por 0 en complejos?
+Ejercicio 2:
+MUCHAS PREGUNTAS

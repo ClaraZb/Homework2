@@ -41,11 +41,11 @@ void Clase::ordenar_clase(vector<Estudiante*> listaclase){
     sort(listaclase.begin(), listaclase.end(), [](Estudiante* alumno1, Estudiante* alumno2){
         return *alumno1 < *alumno2; //operador sobrecargado
     });
-    return; //entender
+    return; 
 }
 void Clase::imprimir_clase(){
     ordenar_clase(alumnos);
-    cout << this;
+    cout << endl; //creo que quiero imprimir la clase?
     /*
     for (int i = 0; i < alumnos.size(); i++){
         cout << alumnos[i] -> get_nombre() << endl;
@@ -57,7 +57,7 @@ void Clase::imprimir_clase(){
 ESTA FUNCION NO FUNCIONA
 LA VDD NO ENTIENDO Q SERIA SOBRECARGAR ESTE OPERADOR EN ESPECIFICO
 osea no tira error pero tpc lo q quiero
-
+*/
 string Clase::operator<<(const Clase& clase) const{
     string temp;
     for (int i = 0; i < alumnos.size(); i++){
@@ -66,10 +66,9 @@ string Clase::operator<<(const Clase& clase) const{
     }
     return temp;
 }
-*/
+
 
 /*
 - problemas al sobrecargar <<
-- relacion entre las clases? tipo friends?
 - creacion de las materias de la clase por consola?
 */
