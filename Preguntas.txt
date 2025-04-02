@@ -1,6 +1,0 @@
-Ejercicio 3:
-- implemento getters y setters?
-- implemento el destructor de la interfaz? o en todo caso lo defino?
-
-Ejercicio 2:
-MUCHAS PREGUNTAS

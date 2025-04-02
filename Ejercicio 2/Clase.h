@@ -9,6 +9,7 @@ class Clase{
     bool esta_inscripto(Estudiante* alumno);
     bool esta_completa();
     void imprimir_clase();
+    Clase& operator=(const Clase& otraClase); //sobrecarga de = para poder copiar
     
     private:
     vector<Estudiante*> alumnos;

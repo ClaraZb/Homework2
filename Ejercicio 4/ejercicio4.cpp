@@ -24,6 +24,10 @@ int main() {
     ahorro.mostrarInfo();
     corriente.mostrarInfo();
 
+    //Accedo por tercera vez a la caja de ahorro (==accedo demasiadas veces)
+    cout << "\nAccedo por tercera vez a la caja de ahorro" << endl;
+    ahorro.mostrarInfo();
+
     //Testeo retirar mas que lo disponible en la cuenta corriente y en la caja de ahorro
     cout << "\nIntento retirar $1500 de la cuenta corriente" << endl;
     try{

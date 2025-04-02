@@ -1,0 +1,4 @@
+Para compilar:
+- meterse a la carpeta
+g++ -o ejercicio4 ejercicio4.cpp CuentaCorriente.cpp CajaDeAhorro.cpp
+./ejercicio4

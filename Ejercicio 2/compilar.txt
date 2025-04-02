@@ -1,0 +1,4 @@
+Para compilar:
+- meterse a la carpeta
+g++ -o ejercicio2 ejercicio2.cpp Clase.cpp Estudiante.cpp
+./ejercicio2

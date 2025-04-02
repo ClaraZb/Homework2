@@ -1,0 +1,4 @@
+Para compilar:
+- meterse a la carpeta
+g++ -o ejercicio3 ejercicio3.cpp Entero.cpp Complejo.cpp Real.cpp
+./ejercicio3

@@ -45,7 +45,6 @@ void Clase::ordenar_clase(vector<Estudiante*> listaclase){
 }
 void Clase::imprimir_clase(){
     ordenar_clase(alumnos);
-    cout << "Lista de la clase: " << endl;
     cout << *this; //creo que quiero imprimir la clase?
 }
 
@@ -56,3 +55,15 @@ ostream& operator<<(ostream& os, const Clase& clase){
     }
     return os;
 }
+
+//Sobrecargo el operador = para poder copiar 
+Clase& Clase::operator=(const Clase& otraClase){
+    alumnos = otraClase.alumnos;
+    return *this;
+}
+
+/*Decido hacer un shallow copy. Este solo funciona si no se tiene 
+memoria alocada dinámicamente dentro del objeto, lo que es el caso
+de esta clase. Ademas, como sabemos que un estudiante puede estar en 
+muchos cursos a la vez, no conviene duplicarlos, por si se modifican
+y quedan diferencias entre ellos. Ademas es mas simple jsjjs*/
