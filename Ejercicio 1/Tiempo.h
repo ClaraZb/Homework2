@@ -3,11 +3,14 @@ using namespace std;
 
 class Tiempo{
     public:
+        //Constructores
         Tiempo();
         Tiempo(int horas);
         Tiempo(int horas, int minuntos);
         Tiempo(int horas, int minutos, int segundos);
         Tiempo(int horas, int minutos, int segundos, string momento);
+
+        //Impresion en pantalla
         void imprimir();
         void ajusteformato();
         

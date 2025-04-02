@@ -7,7 +7,14 @@ un codigo gigante y horrible pero despues lo fui modularizando.
 Decidi no modularizar la inicializacion de tiempo ya que complicaria
 mas el codigo que lo que mejoraria la legibilidad. 
 
-Para la explicacion de la clase tiempo ver el archivo Tiempo.h
+En tiempo.h tengo la declaracion de los constructores, metodos y atributos. 
+En timempo.cpp implemente lo que declare en tiempo.h.
+
+Para resolver esta consigna, implemente una classe Tiempo con diferentes
+constructores, dependiendo de los parametros que le pasaran. Para poder
+acceder a la informacion de manera segura, puse los atributos como private
+e implemente setters y getters publicos. Ademas agregue metodos para poder 
+ver la informacion en pantalla.
 */
 
 
@@ -15,8 +22,6 @@ int manejoError(){ //Imprimo por pantalla en caso de error
     int res;
     cout << "Error en el ingreso de los datos" << endl;
     cout << "Quieres salir (0) o ingresar un numero nuevamente (1)? ";
-    //cin.clear();
-    //cin.ignore(100, '\n');
     cin >> res;
     return res;
 }

@@ -2,6 +2,10 @@
 #include <iostream>
 using namespace std;
 
+/*
+EXPLICAR POR QUE LOS PRIVATE PROTECTED Y ESO
+*/
+
 int main() {
     CajaDeAhorro ahorro(1000, "Clara");
     CuentaCorriente corriente(500, "Clara", &ahorro);

@@ -5,6 +5,11 @@
 #include <vector>
 using namespace std;
 
+/*
+RELACION ENTER LAS CLASES ESTUDIANTE Y CLASE
+HAS-A
+*/
+
 vector<pair<string, float>> crearNotas(string nombre){
     vector<pair<string, float>> notas = {};
     string materia = " ";
@@ -39,19 +44,16 @@ void testeoPromedio(Estudiante& alumno){
 
 int main(){
     string nombre1 = "Clara Zavaroni";
-    //vector<pair<string, float>> notas1 = {{"Fisica", 7}, {"Paradigmas",9}};
     vector<pair<string, float>> notas1 = crearNotas(nombre1);
     Estudiante alumno1(nombre1, 364554, notas1);
     cout << endl;
 
     string nombre2 = "Juana Bertone";
-    //vector<pair<string, float>> notas2 = {{"Fisica", 9}, {"Paradigmas",6}};
     vector<pair<string, float>> notas2 = crearNotas(nombre2);
     Estudiante alumno2(nombre2, 376845, notas2);
     cout << endl;
 
     string nombre3 = "Bianca Paz";
-    //vector<pair<string, float>> notas3 = {{"Fisica", 10}, {"Paradigmas",8}};
     vector<pair<string, float>> notas3 = crearNotas(nombre3);
     Estudiante alumno3(nombre3, 306845, notas3);
     cout << endl;
@@ -102,7 +104,3 @@ int main(){
     cout << "No se modifico :))))" << endl;
 
 }
-
-
-//creo q hay q inscribir al alumno por consola
-//sino defino yo las materias posibles y sus notas?
