@@ -3,6 +3,19 @@
 #include <cmath> //para sqrt
 using namespace std;
 
+/*Lo que mas me costo en este ejercicio fue entender en que contexto podria utilizar estas clases, 
+es decir para que podrian servir. Cuando ya entendi fue facil de implementar.
+
+En primer lugar cree una interfaz Numero, que tiene todos los metodos virtuales puros.
+De ahi, cree tres clases derivadas llamadas Entero, Real y Complejo, en las que implementaba los
+metodos declarados en Numero.
+
+En el main implemente testeos para cada una de las clases, incluyendo al final posibles errores en 
+las entradas, manejandolos. 
+
+Como asigno memoria con new adentro de las clases, me aseguro de eliminar esa memoria en el main 
+con delete. 
+*/
 
 int main(){
     //Testeo enteros
