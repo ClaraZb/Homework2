@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-
+//Me sirve como link entre las dos clases
 double verificarBalance(CajaDeAhorro &caja){
     return caja.balance;
 }

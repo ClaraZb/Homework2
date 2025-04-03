@@ -20,7 +20,7 @@ class Banco {
 //Clases derivadas de banco
 class CajaDeAhorro: public Banco{
     public:
-        CajaDeAhorro(double b, string titular){
+        CajaDeAhorro(double b, string titular){ //Constructor
             balance = b;
             titularCuenta = titular;
         } 
@@ -34,7 +34,7 @@ class CajaDeAhorro: public Banco{
 
 class CuentaCorriente: public Banco{
     public:
-        CuentaCorriente(double b, string titular, CajaDeAhorro* caja){
+        CuentaCorriente(double b, string titular, CajaDeAhorro* caja){ //Constructor
             balance = b;
             titularCuenta = titular;
             cajaAhorro = caja;

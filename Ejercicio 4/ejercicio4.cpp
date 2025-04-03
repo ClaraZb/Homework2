@@ -3,10 +3,24 @@
 using namespace std;
 
 /*
-EXPLICAR POR QUE LOS PRIVATE PROTECTED Y ESO
+Para este ejercicio, cree una clase abstracta (tiene metodos virtuales puros y otros no) 
+de la que derivan las clases CajaDeAhorro y CuentaCorriente. Los metodos declarados como virtuales
+puros los implemento si o si en las clases derivadas con override. 
+Aparte, dentro de las clases derivadas creo metodos que no estan en la clase abstracta base.
+
+En la clase abstracta Banco pongo los metodos en public ya que van a ser accedidos 
+por el usuario. Por otro lado, los atributos los declaro como protected para que las 
+clases derivadas puedan acceder a ellos y manipularlos. 
+Para el caso de las clases derivadas CuentaCorriente y CajaDeAhorro, deje los metodos 
+en public y los atributos en privado, ya que no quiero que se pueda acceder a ellos 
+desde el main por ejemplo. 
+
+En el main testeo posibles funcionalidades de estas clases, teniendo en cuenta las posibles
+situaciones mencionadas en la consigna. 
 */
 
 int main() {
+    //Inicializo las clases
     CajaDeAhorro ahorro(1000, "Clara");
     CuentaCorriente corriente(500, "Clara", &ahorro);
 
