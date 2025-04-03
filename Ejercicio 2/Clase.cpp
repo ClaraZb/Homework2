@@ -5,16 +5,16 @@
 #include <algorithm>
 using namespace std;
 
-Clase::Clase(vector<Estudiante*> lista){
+Clase::Clase(vector<Estudiante*> lista){ //Constructor
     alumnos = lista;
 }
 
-void Clase::inscribir(Estudiante* alumno){
+void Clase::inscribir(Estudiante* alumno){ //Inscribo un alumno a la clase
     alumnos.push_back(alumno);
     return;
 }
 
-bool Clase::desinscribir(Estudiante* alumno){
+bool Clase::desinscribir(Estudiante* alumno){ //Desinscribo un alumno de la clase
     for (int i = 0; i < alumnos.size(); i++){
         if (alumnos[i] == alumno){
             alumnos.erase(alumnos.begin() + i);
@@ -24,7 +24,7 @@ bool Clase::desinscribir(Estudiante* alumno){
     return false; //caso donde no se encontro al alumno en cuestion
 }
 
-bool Clase::esta_inscripto(Estudiante* alumno){
+bool Clase::esta_inscripto(Estudiante* alumno){ //Verifico si un alumno esta inscripto
     for (int i = 0; i < alumnos.size(); i++){
         if (alumnos[i] == alumno){
             return true;
@@ -33,7 +33,7 @@ bool Clase::esta_inscripto(Estudiante* alumno){
     return false;
 }
 
-bool Clase::esta_completa(){
+bool Clase::esta_completa(){ //Verifico si la clase esta completa
     return alumnos.size() == 20;
 }
 
@@ -43,21 +43,21 @@ void Clase::ordenar_clase(vector<Estudiante*> listaclase){
     });
     return; 
 }
-void Clase::imprimir_clase(){
+
+void Clase::imprimir_clase(){ //Imprimo por pantalla los alumnos de la clase
     ordenar_clase(alumnos);
-    cout << *this; //creo que quiero imprimir la clase?
+    cout << *this; //imprimo la clase usando la sobrecarga del operador <<
 }
 
-ostream& operator<<(ostream& os, const Clase& clase){
+ostream& operator<<(ostream& os, const Clase& clase){ //Sobrecarga del operador <<
     string temp;
     for (int i = 0; i < clase.alumnos.size(); i++){
         os << clase.alumnos[i] -> get_nombre() << endl;
     }
     return os;
 }
-
-//Sobrecargo el operador = para poder copiar 
-Clase& Clase::operator=(const Clase& otraClase){
+ 
+Clase& Clase::operator=(const Clase& otraClase){ //Sobrecarga del operador = para poder copiar
     alumnos = otraClase.alumnos;
     return *this;
 }

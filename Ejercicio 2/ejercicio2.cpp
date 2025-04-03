@@ -6,11 +6,29 @@
 using namespace std;
 
 /*
-RELACION ENTER LAS CLASES ESTUDIANTE Y CLASE
-HAS-A
+En primer lugar implemente la clase Estudiante. En estudiante.h declare los metodos
+y atributos que necesitaria y los implemente en estudiante.cpp. 
+Luego declare la clase Clase (curso). Esta clase tiene un atributo que es una lista
+que contiene objetos Estudiante. La relacion entre estas clases es entonces de "has-a"
+(agregacion), en la que Clase actua como un "todo" y los objetos Estudiante como sus "partes". 
+Sin embargo, no tienen una dependencia total, pueden existir estudiantes aunque no haya
+una Clase en la que esten. 
+
+En el main testee todas las funciones necesarias, y para hacer mas claro el codigo
+modularice un par de partes.
+
+Explicacion de como copie la clase: (o sino ver este mismo comentario en Clase.cpp)
+Decido hacer un shallow copy (para eso antes sobrecargo el operador =). Este solo funciona 
+si no se tiene memoria alocada dinámicamente dentro del objeto, lo que es el caso de esta clase. 
+Ademas, como sabemos que un estudiante puede estar en muchos cursos a la vez, no conviene 
+duplicarlos, por si se modifican y quedan diferencias entre ellos. De esta manera, tanto la copia 
+como el original comparten los punteros a los Estudiantes, entonces si hay una modificacion en el 
+Estudiante, en ambos la informacion va a estar actualizada.
+Ademas con shallpw copy es mas simple jsjjs.
 */
 
-vector<pair<string, float>> crearNotas(string nombre){
+vector<pair<string, float>> crearNotas(string nombre){ 
+    //Agrego los cursos a los que esta inscripto el estudiante con sus notas
     vector<pair<string, float>> notas = {};
     string materia = " ";
     float nota = 0;
@@ -28,6 +46,7 @@ vector<pair<string, float>> crearNotas(string nombre){
 }
 
 void imprimirInscripcion(Estudiante& alumno, bool estaInscripto) {
+    //Imprimo en pantalla si el alumno esta inscripto
     if (estaInscripto) {
         cout << "El alumno " + alumno.get_nombre() + " está inscrito" << endl;
     } 
@@ -37,12 +56,14 @@ void imprimirInscripcion(Estudiante& alumno, bool estaInscripto) {
 }
 
 void testeoPromedio(Estudiante& alumno){
+    //Imprimo en pantalla el promedio del alumno
     cout << "El estudiante " << alumno.get_nombre()
     << "tiene un promedio de " << alumno.get_promedio()
     << endl;
 }
 
 int main(){
+    //Creo los estudiantes
     string nombre1 = "Clara Zavaroni";
     vector<pair<string, float>> notas1 = crearNotas(nombre1);
     Estudiante alumno1(nombre1, 364554, notas1);
@@ -63,9 +84,11 @@ int main(){
     testeoPromedio(alumno2);
     testeoPromedio(alumno3);
 
+    //Creo un objeto Clase y asigno alumno1 y alumno2 a ese curso
     vector<Estudiante*> alumnos = {&alumno1, &alumno3};
     Clase teoricaParadigmas(alumnos);
 
+    //Testeo funciones inscribir y desinscribir
     cout << endl <<"Testeo las funciones inscribir y desinscribir:" << endl;
     cout << "[Inscribo a un alumno]" << endl;
     teoricaParadigmas.inscribir(&alumno2);
@@ -77,6 +100,7 @@ int main(){
     res = teoricaParadigmas.esta_inscripto(&alumno2);
     imprimirInscripcion(alumno2, res);
 
+    //Testeo si la clase esta completa
     cout << "Testeo si la clase esta completa:" << endl;
     res = teoricaParadigmas.esta_completa();
     if (res == 1){
@@ -88,10 +112,10 @@ int main(){
     cout << "Imprimo la clase: " << endl;
     teoricaParadigmas.imprimir_clase();
 
-    //Testeo la implementacion con shallowcopy
+    //Testeo la implementacion de la copia con shallowcopy
     cout << "\nTesteo la implementacion de la copia: " << endl;
     Clase copiaTeoricaParadigmas({});
-    copiaTeoricaParadigmas = teoricaParadigmas;
+    copiaTeoricaParadigmas = teoricaParadigmas; //utilizo la sobrecarga del operador =
     cout << "Copia Teorica Paradigmas: " << endl;
     copiaTeoricaParadigmas.imprimir_clase();
 
