@@ -4,7 +4,7 @@
 using namespace std;
 
 
-Real* Real::suma(Numero* otroNum){
+Numero* Real::suma(Numero* otroNum){
     Real* otroReal = dynamic_cast<Real*>(otroNum); //otroNum podria ser otra cosa que un real, asi que me aseguro de que lo sea.
     if (otroReal == nullptr){ //cuando el casteo falla devuelve un nullptr
         throw invalid_argument("Se debe ingresar un numero real");
@@ -12,7 +12,7 @@ Real* Real::suma(Numero* otroNum){
     return new Real(valor + otroReal -> valor);
 }
 
-Real* Real::resta(Numero* otroNum){
+Numero* Real::resta(Numero* otroNum){
     Real* otroReal = dynamic_cast<Real*>(otroNum); 
     if (otroReal == nullptr){ 
         throw invalid_argument("Se debe ingresar un numero real");
@@ -20,7 +20,7 @@ Real* Real::resta(Numero* otroNum){
     return new Real(valor - otroReal -> valor);
 }
 
-Real* Real::multiplicacion(Numero* otroNum){
+Numero* Real::multiplicacion(Numero* otroNum){
     Real* otroReal = dynamic_cast<Real*>(otroNum); 
     if (otroReal == nullptr){ 
         throw invalid_argument("Se debe ingresar un numero real");
@@ -28,7 +28,7 @@ Real* Real::multiplicacion(Numero* otroNum){
     return new Real(valor * otroReal -> valor);
 }
 
-Real* Real::division(Numero* otroNum){
+Numero* Real::division(Numero* otroNum){
     Real* otroReal = dynamic_cast<Real*>(otroNum); 
     if (otroReal == nullptr){ 
         throw invalid_argument("Se debe ingresar un numero real");

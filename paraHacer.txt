@@ -1,6 +1,0 @@
-- Agregar comentarios en todo
-
-- chequear la division de complejos con algun ejemplo
-- explicar por que cada cosa es private o public o protected en el ejercicio 4
-- chequear comentarios
-- compilar todo una vez

@@ -24,10 +24,10 @@ class Numero {
 class Entero: public Numero{
     public:
     Entero(int v): valor(v){} //Constructor
-    Entero* suma(Numero* otroNum) override; //Implemento las clases definidas en la interfaz
-    Entero* resta(Numero* otroNum) override;
-    Entero* multiplicacion(Numero* otroNum) override;
-    Entero* division(Numero* otroNum) override;
+    Numero* suma(Numero* otroNum) override; //Implemento las clases definidas en la interfaz
+    Numero* resta(Numero* otroNum) override;
+    Numero* multiplicacion(Numero* otroNum) override;
+    Numero* division(Numero* otroNum) override;
     string toString() override; 
 
     private:
@@ -37,10 +37,10 @@ class Entero: public Numero{
 class Real: public Numero{
     public:
     Real(float v): valor(v) {}; //Constructor
-    Real* suma(Numero* otroNum) override; //Implemento las clases definidas en la interfaz
-    Real* resta(Numero* otroNum) override;
-    Real* multiplicacion(Numero* otroNum) override;
-    Real* division(Numero* otroNum) override;
+    Numero* suma(Numero* otroNum) override; //Implemento las clases definidas en la interfaz
+    Numero* resta(Numero* otroNum) override;
+    Numero* multiplicacion(Numero* otroNum) override;
+    Numero* division(Numero* otroNum) override;
     string toString() override;
 
     private:
@@ -50,10 +50,10 @@ class Real: public Numero{
 class Complejo: public Numero{
     public:
     Complejo(float parte_real, float parte_imaginaria): real(parte_real), img(parte_imaginaria) {}; //Constructor
-    Complejo* suma(Numero* otroNum) override; //Implemento las clases definidas en la interfaz;
-    Complejo* resta(Numero* otroNum) override;
-    Complejo* multiplicacion(Numero* otroNum) override;
-    Complejo* division(Numero* otroNum) override;
+    Numero* suma(Numero* otroNum) override; //Implemento las clases definidas en la interfaz;
+    Numero* resta(Numero* otroNum) override;
+    Numero* multiplicacion(Numero* otroNum) override;
+    Numero* division(Numero* otroNum) override;
     string toString() override; 
 
     private: //un complejo esta formado por una parte real y otra imaginaria

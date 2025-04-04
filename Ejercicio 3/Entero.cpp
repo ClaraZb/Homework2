@@ -4,7 +4,7 @@
 using namespace std;
 
 
-Entero* Entero::suma(Numero* otroNum){
+Numero* Entero::suma(Numero* otroNum){
     Entero* otroEntero = dynamic_cast<Entero*>(otroNum); //otroNum podria ser otra cosa que un entero, asi que me aseguro de que lo sea.
     if (otroEntero == nullptr){ //cuando el casteo falla devuelve un nullptr
         throw invalid_argument("Se debe ingresar un entero");
@@ -12,7 +12,7 @@ Entero* Entero::suma(Numero* otroNum){
     return new Entero(valor + otroEntero -> valor);
 }   
 
-Entero* Entero::resta(Numero* otroNum){
+Numero* Entero::resta(Numero* otroNum){
     Entero* otroEntero = dynamic_cast<Entero*>(otroNum); 
     if (otroEntero == nullptr){ 
         throw invalid_argument("Se debe ingresar un entero");
@@ -20,7 +20,7 @@ Entero* Entero::resta(Numero* otroNum){
     return new Entero(valor - otroEntero -> valor);
 }
 
-Entero* Entero::multiplicacion(Numero* otroNum){
+Numero* Entero::multiplicacion(Numero* otroNum){
     Entero* otroEntero = dynamic_cast<Entero*>(otroNum); 
     if (otroEntero == nullptr){ 
         throw invalid_argument("Se debe ingresar un entero");
@@ -28,7 +28,7 @@ Entero* Entero::multiplicacion(Numero* otroNum){
     return new Entero(valor * otroEntero -> valor);
 }
 
-Entero* Entero::division(Numero* otroNum){
+Numero* Entero::division(Numero* otroNum){
     Entero* otroEntero = dynamic_cast<Entero*>(otroNum); 
     if (otroEntero == nullptr){ 
         throw invalid_argument("Se debe ingresar un entero");
